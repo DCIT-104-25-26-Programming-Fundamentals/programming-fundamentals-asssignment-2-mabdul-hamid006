@@ -37,3 +37,36 @@
 #include <iostream>
 using namespace std;
 
+// Function that checks whether a number is prime
+bool isPrime(int n) {
+    // Numbers less than 2 are NOT prime
+    if (n < 2) {
+        return false;
+    }
+
+    // Check for divisors from 2 up to n-1
+    for (int i = 2; i < n; i++) {
+        if (n % i == 0) {
+            // Found a divisor other than 1 and itself → not prime
+            return false;
+        }
+    }
+
+    // No divisors found → it is prime
+    return true;
+}
+
+int main() {
+    int number;
+
+    cout << "Enter a number: ";
+    cin >> number;
+
+    if (isPrime(number)) {
+        cout << number << " is a prime number." << endl;
+    } else {
+        cout << number << " is NOT a prime number." << endl;
+    }
+
+    return 0;
+}
